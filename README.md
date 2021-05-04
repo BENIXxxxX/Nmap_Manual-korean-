@@ -38,4 +38,42 @@ Nmap Reference Guide
     포트 테이블은 버전 검출 시 소프트웨어 상세 버전을 포함하여 요청을 한다.
     IP 프로토콜 검색이 요청되면(-sO), nmap에서 제공하는 수신 포트 대신 지원되는 IP 프로토콜에 대한 정보를 제공합니다.
 
-    
+    nmap은 흥미로운 포트 테이블 외에도 추가 정보를 제공할 수 있습니다.
+    리버스 DNS 이름, 운영 체제를 포함한 대상에 대한 정보 추측, 장치 유형 및 MAC 주소를 입력합니다.
+
+    일반적인 nmap 스캔은 예제 1에 나와 있습니다.
+    이 예에서는 사용된 유일한 nmap 인수는 -A, OS 및 버전 탐지를 활성화하는 스크립트, 검색 및 traceroute; -T4를 사용하면 고속 실행이 가능해지고, 호스트명을 지정합니다.
+
+    예제 1. 대표적인 nmap 스캔
+        # nmap -A -T4 scanme.nmap.org
+
+        Nmap scan report for scanme.nmap.org (74.207.244.221)
+        Host is up (0.029s latency).
+        rDNS record for 74.207.244.221: li86-221.members.linode.com
+        Not shown: 995 closed ports
+        PORT     STATE    SERVICE     VERSION
+        22/tcp   open     ssh         OpenSSH 5.3p1 Debian 3ubuntu7 (protocol 2.0)
+        | ssh-hostkey: 1024 8d:60:f1:7c:ca:b7:3d:0a:d6:67:54:9d:69:d9:b9:dd (DSA)
+        |_2048 79:f8:09:ac:d4:e2:32:42:10:49:d3:bd:20:82:85:ec (RSA)
+        80/tcp   open     http        Apache httpd 2.2.14 ((Ubuntu))
+        |_http-title: Go ahead and ScanMe!
+        646/tcp  filtered ldp
+        1720/tcp filtered H.323/Q.931
+        9929/tcp open     nping-echo  Nping echo
+        Device type: general purpose
+        Running: Linux 2.6.X
+        OS CPE: cpe:/o:linux:linux_kernel:2.6.39
+        OS details: Linux 2.6.39
+        Network Distance: 11 hops
+        Service Info: OS: Linux; CPE: cpe:/o:linux:kernel
+
+        TRACEROUTE (using port 53/tcp)
+        HOP RTT      ADDRESS
+        [Cut first 10 hops for brevity]
+        11  17.65 ms li86-221.members.linode.com (74.207.244.221)
+
+        Nmap done: 1 IP address (1 host up) scanned in 14.40 seconds
+    nmap의 최신 버전은 https://nmap.org 에서 구할 수 있다.
+    man 페이지의 최신 버전은 다음에서 사용할 수 있습니다.
+    https://nmap.org/book/man.html
+    네트워크에 대한 nmap 공식 프로젝트 가이드 검색 및 보안 검색(https://nmap.org/book/)참조.
