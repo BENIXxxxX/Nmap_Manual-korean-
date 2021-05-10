@@ -77,3 +77,58 @@ Nmap Reference Guide
     man 페이지의 최신 버전은 다음에서 사용할 수 있습니다.
     https://nmap.org/book/man.html
     네트워크에 대한 nmap 공식 프로젝트 가이드 검색 및 보안 검색(https://nmap.org/book/)참조.
+
+옵션 요약
+    이 옵션 요약은 nmap이 인수 없이 실행될 때 인쇄됩니다.
+    최신 버전은 항상 다음에서 제공됩니다.
+    https://svn.nmap.org/nmap/docs/nmap.usage.txt
+    그것은 사람들이 기억하도록 도와준다.
+    가장 일반적인 옵션이지만 심층적인 옵션 대신 사용할 수는 없습니다.
+    이 설명서의 나머지 부분에 있는 문서입니다.
+    일부 불명확한 옵션은 그렇지 않습니다.
+    여기에 포함되기도 합니다.
+
+        Nmap 7.90 ( https://nmap.org )
+        Usage: nmap [스캔 유형] [옵션] {대상 사양}
+        대상 사양:
+            호스트 이름, IP 주소, 네트워크 등을 전달할 수 있습니다.
+            Ex: scanme.nmap.org, microsoft.com/24, 192.168.0.1; 10.0.0-255.1-254
+            -iL <input filename>: 호스트/네트워크 목록에서 입력
+            -iR <num hosts>: 랜덤 대상 선택
+            --exclude <host1[,host2][,host3],...>: 호스트/네트워크 제외
+            --excludefile <exclude_file>: 파일에서 목록 제외
+        호스트 검색:
+            -sL: 목록 검색 - 검색할 대상을 나열하기만 하면 됩니다.
+            -sn: Ping Scan - 포트 스캔을 비활성화합니다.
+            -Pn: 모든 호스트를 온라인으로 처리 - 호스트 검색을 건너뜁니다.
+            -PS/PA/PU/PY[포트리스트]: 지정된 포트에 대한 TCP SYN/ACK, UDP 또는 SCTP 검색
+            -PE/PP/PM: ICMP 에코, 타임스탬프 및 넷마스크 요청 검색 프로브
+            -PO[프로토콜 목록]: IP 프로토콜 핑
+            -n/-R: DNS 확인 안 함/항상 해결 [기본값: 때떄로]
+            --https-servers <serv1[,serv2],...>: 사용자 지정 DNS 서버 지정
+            --시스템 통합: OS의 DNS 확인기 사용
+            --추적 경로: 각호수트에 대한 홉 경로 추적
+        스캔 기법:
+            -s/sT/sA/sW/sM: TCP SYN/Connect(/ACK/윈도우/Maimon) 스캔
+            -sU: UDP 스캔
+            -sN/sF/sX: TCP Null, FIN 및 Xmas 스캔
+            --스캔 플래그 <br>: TCP 검색 플래그 사용자 정의
+            -sl <좀비호스트[:probeport]>: 유휴 검색
+            -sY/sZ : SCTP INIT/COOKIE-ECHO 스캔
+            -sO: IP 프로토콜 검색
+            -b <FTP 릴레이 호스트>: FTP 바운스 스캔
+        포트 사양 및 스캔 순서:
+            -p <포트 범위>: 지정된 포트만 검색
+            Ex: -p22;-p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
+            --exclude-ports <포트 범위>: 지정된 포트를 검색에서 제외합니다.
+            -F: 빠른 모드 - 기본 검색보다 적은 수의 포트를 검색합니다.
+            -r: 포트 연속 스캔 - 임의 추출하지 않음
+            --top-ports <number>: 가장 일반적인 포트 검색<number>
+            --port-ratio <ratio>: <ratio> 보다 일반적인 포트 검색
+        서비스/버전 감지:
+            -sV: 개방형 포트를 탐색하여 서비스/버전 정보 확인
+            --version-density <level>: 0에서 9(모든 프로브 시도)로 설정
+            --version-light: 가능성이 가장 높은 프로브에 대한 한계(강도 2)
+            --version-all: 모든 프로브 시도(강도 9)
+            --version-trace: 세부 버전 검색 작업 표시(디버그용)
+        
