@@ -131,4 +131,63 @@ Nmap Reference Guide
             --version-light: 가능성이 가장 높은 프로브에 대한 한계(강도 2)
             --version-all: 모든 프로브 시도(강도 9)
             --version-trace: 세부 버전 검색 작업 표시(디버그용)
-        
+        OS 탐지:
+            -O: OS 검출 활성화
+            --osscan-limit: OS 탐지를 유망한 대상으로 제한
+            --osscan-filen: OS를 보다 적극적으로 추측합니다.
+        타이밍 및 성능:
+            [시간]이 걸리는 옵션은 초 단위이거나 'ms'(밀리초)를 추가합니다.
+            값(예: 30m)에 대한 's'(초), 'm'(분) 또는 'h'(시간)입니다.
+            -T<0-5>: 타이밍 템플릿 설정(높은 것이 더 빠름)
+            --min-hostgroup/max-hostgroup <size>: 병렬 호스트 검색 그룹 크기
+            --min-parallelism/max-parallelism <numprobe>: 프로브 병렬화
+            --min-rt-timeout/max-rt-timeout/initial-rt-timeout <time>: 왕복 시간을 지정하다
+            --max-retries <try>: 포트 스캔 프로브 재전송 횟수를 제한합니다.
+            --host-timeout <time>: 프로브 간 지연 조정
+            --min-rate <number>: 초당 <number> 보다 느린 패킷 전송
+            --max-rate <number>: 초당 <number> 보다 빠른 패킷 전송
+        방화벽/ID 회피 및 스푸핑:
+            -f; --mtu <val>:패킷 조작(옵션으로 지정된 MTU 포함)
+            -D <decoy1, decoy2, [,ME],...>: 디스켓으로 스캔 은폐
+            -S ip: 스푸핑 소스 주소
+            -e <iface>: 지정된 인터페이스 사용
+            -g/--소스 포트 <portnum>: 지정된 포트 번호 사용
+            --discies <url1,[url2],...>: HTTP/SOCK4 프록시를 통해 연결 중계
+            --data <hex 문자열>: 보낸 패킷에 사용자 지정 페이로드 추가
+            --데이터 문자열 <문자열>: 보낸 패킷에 사용자 지정 ASCII 문자열 추가
+            --data-length <num>: 전송된 패킷에 임의 데이터 추가
+            --ip-options <options>: 지정된 IP 옵션으로 패킷 전송
+            --ttl <val>: IP 실시간 필드 설정
+            --spoph-mac <mac address/prefix/vendor name>: MAC 주소 스푸핑
+            --badsum: 가짜 TCP/UDP/SCTP 체크섬을 사용하여 패킷 전송
+        출력:
+            -onN/-oX/-oS/-oG <file>: 정규, XML, s|<rIpt kIddi3>의 출력 검색,
+            지정된 파일 이름에 대해 각각 Grepable 형식과 Grepable 형식을 지정합니다.
+            -oA <기본 이름>: 세 가지 주요 형식으로 동시에 출력
+            -v: 다원성 수준 증가(더 큰 효과를 위해 -vv 이상을 사용)
+            -d: 디버깅 수준 증가(더 큰 효과를 위해 -dd 이상 사용)
+            --이유: 포트가 특정 상태에 있는 이유 표시
+            --열림: 열린(또는 열려 있을 가능성이 있는) 포트만 표시
+            --iflist: 호스트 인터페이스 및 경로 인쇄(디버그용)
+            --추가 출력: 지정된 출력 파일에 추가하지 않고 추가
+            --resume <파일 이름>: 중단 된 스캔 재개
+            --stylesheet<path/URL>: XML 출력을 HTML로 변환하는 XSL 스타일 시트
+            --webxml: portable XML을 위한 NMAP.ORG의 참조 스타일 시트
+            --no-stylesheet: XML 출력과 XSL 스타일시트의 연관성 방지
+        MISC:
+            -6: IPv6 검색 사용
+            -A: OS 탐지, 버전 탐지, 스크립트 검색 및 추적 경로 사용
+            --datadir <dirname>: 사용자 지정 nmap 데이터 파일 위치 지정
+            --send-eth/--send-ip: 로우 이더넷 프레임 또는 IP 패킷을 사용하여 전송
+            --보통: 사용자에게 완전한 권한이 있다고 가정합니다.
+            --권한 부여: 사용자에게 로우 소켓 권한이 없다고 가정합니다.
+            -V: 버전 번호 출력
+            -h: 도움말 요약 페이지를 출력
+        Example:
+            nmap -v -A scanme.nmap.org
+            nmap -v -sn 192.168.0.0/16 10.0.0.0/8
+            nmap -v -iR 10000 -Pn -p 80
+            자세한 옵션 및 예는 MAN 페이지 (https://nmap.org/book/man.html)를 참조하십시오
+
+
+            
