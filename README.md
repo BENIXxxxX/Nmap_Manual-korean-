@@ -389,4 +389,6 @@ Nmap Reference Guide
         예상치 못한 ACK 패킷은 일반적으로 위조 및 폐기되는 것으로 간주되기 때문에 SYN 감지는 이러한 시스템에서 작동 할 가능성이 더 높습니다.
         이 딜레마에 대한 해결책은 -PS 및 -PA 를 지정하여 SYN 및 ACK 프로브를 보내는 것 입니다.
 
-    
+    -PU port list (UDP ping)
+        또 다른 호스트 검색 옵션은 UDP 패킷을 지정된 포트로 보내는 UDP ping 입니다.
+        
